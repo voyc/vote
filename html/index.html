@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+<title>Vote</title>
+<style>[hidden] {display:none ! important;}</style>
+
+<?php if (false) { ?>
+<link href='css/vote.css' rel='stylesheet' type='text/css'></link>
+<script src="js/namespace.js"></script>
+<script src="js/vote.js"></script>
+<?php } else { ?>
+<!--<remove>
+<script src='min.js'></script>
+<link href='min.css' rel='stylesheet' type='text/css'></link>
+<remove>-->
+<?php } ?>
+
+<script>
+window.addEventListener('load', function(evtwin) {
+voyc.vote = new Vote();
+voyc.vote.load();
+}, false);
+</script>
+</head>
+
+<body>
+<h1>Vote</h1>
+<h2>Using Instant-Runoff Voting <a class='help' href='https://en.wikipedia.org/wiki/Instant-runoff_voting'>What is that?</a></h2>
+<h1>Election: 2016 USA President</h1>
+
+<section id='vote'>
+<button id='vote'>Vote Now</button>
+<p>You may vote now and change your vote anytime before 8:00 PM Pacific November 5, 2016.</p>
+</section>
+
+<section id='ballot'>
+<h2>Your Ballot</h2>
+<div id='ranked'></div>
+<h3 id='choice'>Select your <span id='ordinal'>first</span> choice:</h3>
+<div id='unranked'></div>
+<button id='cast'>Cast Ballot</button>
+</section>
+
+<section id='results'>
+<h2>Current Results</h2>
+<p>Rounds continue, eliminating the lowest-ranked candidate in each round, until one candidate receives 50% or more of the vote.</p>
+<h3>Winner: Bernie Sanders in Round 4</h3>
+<div id='res'></div>
+<div id='stats'>
+<p>Total number of voters:</p>
+<p>Average number of ranked candidates per voter:</p>
+<a href=''>Vote again</a>
+</section>
+
+</body>
+</html>

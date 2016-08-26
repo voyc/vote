@@ -1,0 +1,21 @@
+td:nth-of-type(3) {
+	text-align:right;
+}
+
+#unranked {
+	margin-top: 1em;
+}
+
+.help {
+	font-size: initial;
+	font-weight: initial;
+}
+
+section {
+	border:1px solid black;
+}
+
+div[unrankline] {
+	color:blue;
+	text-decoration:underline;
+}
