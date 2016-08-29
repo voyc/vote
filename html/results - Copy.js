@@ -1,12 +1,11 @@
-var a = {};
-a['candidates'] = [
+window['voyc']['vote']['candidates'] = [
 	{id:1, rank:0, rand:5, name:'Donald Trump', party:'Republican'},
 	{id:2, rank:0, rand:3, name:'Hillary Clinton', party:'Democrat'},
 	{id:3, rank:0, rand:1, name:'Bernie Sanders', party:'Independent'},
 	{id:4, rank:0, rand:4, name:'Gary Johnson', party:'Libertarian'},
 	{id:5, rank:0, rand:2, name:'Jill Stein', party:'Green'},
 ];
-a['results'] = {
+window['voyc']['vote']['results'] = {
 	numVoters: 24,
 	avgRanked: 3,
 	winner:'Bernie Sanders',
@@ -44,4 +43,5 @@ a['results'] = {
 		}
 	]
 };
-window['voyc']['onScriptLoaded'](a);
+//window['voyc']['vote']['onResultsReady']();
+window['voyc']['vote']['onElectionReady']();

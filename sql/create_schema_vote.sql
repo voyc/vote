@@ -1,17 +1,3 @@
-/*
-After creating the database schema using create_schema_vote.sql, 
-run the following grant statements, using the correct database and user names.	
-
-grant connect on database vote to webuser64;
-grant usage on schema vote to webuser64;
-grant select,insert,update,delete on vote.election to webuser64;
-grant select,update on vote.election_id_seq to webuser64;
-grant select,insert,update,delete on vote.candidate to webuser64;
-grant select,update on vote.candidate_id_seq to webuser64;
-grant select,insert,update,delete on vote.vote to webuser64;
-grant select,update on vote.vote_id_seq to webuser64;
-*/
-
 drop schema vote cascade;
 create schema vote;
 

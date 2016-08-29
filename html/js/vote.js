@@ -27,26 +27,42 @@ Vote.prototype.load = function() {
 		that.showSection('results');
 	}, false);
 
-	appendScript('results.js');
-}
-
-Vote.prototype.onResultsReady = function() {
-}
-Vote.prototype.onElectionReady = function() {
-	this.showSection('vote');
+	this.comm = new Comm('http://vote.voyc.com/svc/', '', 0, true); 
+	var svcname = 'castballot';
+	var postdata = {};
+	postdata['e'] = 1;
+	var that = this;
+	this.comm.request(svcname, postdata, function(ok,response,xhr) {
+		if (ok) {
+			if (response['candidates']) {
+				window['voyc']['vote']['candidates'] = response['candidates'];
+			}
+			if (response['results']) {
+				window['voyc']['vote']['results'] = response['results'];
+			}
+			that.showSection('vote');
+		}
+	})
 }
 
 Vote.prototype.drawResults = function() {
 	var i = 1;
 	var s = '';
 	var results = window['voyc']['vote']['results'];
+	
+	var winner = 'Winner: %name% in Round %finalround%';
+	var t = winner;
+	t = t.replace('%name%', results.winner);
+	t = t.replace('%finalround%', results.finalround);
+	document.getElementById('win').innerHTML = t;
+	
 	var rounds = results.rounds;
 	var row = '<tr><td>%name%</td><td>%count%</td><td>%pct%</td><td>%note%</td></tr>';
 	for (var n=0; n<rounds.length; n++) {
 		s += '<h3>Round ' + (i++) + '</h3>';
 		s += '<table>';
-		for (var m=0; m<rounds[n].round.length; m++) {
-			var set = rounds[n].round[m];
+		for (var m=0; m<rounds[n].nominees.length; m++) {
+			var set = rounds[n].nominees[m];
 			var note = '';
 			if (m == 0) {
 				if (set.pct < 50) {
@@ -56,7 +72,7 @@ Vote.prototype.drawResults = function() {
 					note = 'Winner';
 				}
 			}
-			else if (m == rounds[n].round.length-1 && m > 1) {
+			else if (m == rounds[n].nominees.length-1 && m > 1) {
 				note = 'Eliminated';
 			}
 			var td = row;
@@ -151,15 +167,4 @@ Vote.prototype.showSection = function(id) {
 	for (var i=0; i<a.length; i++) {
 		a[i].style.display = (a[i].id == id) ? 'block' : 'none';
 	}
-}
-
-appendScript = function(file) {
-	var script = document.createElement("script");
-	script.type = "text/javascript";
-	script.src = file;
-	document.getElementsByTagName("head")[0].appendChild(script);
-}
-
-window['voyc']['vote']['onResultsReady'] = function() {
-	vote.onResultsReady();
 }

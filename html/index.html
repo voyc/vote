@@ -10,6 +10,7 @@
 <link href='css/vote.css' rel='stylesheet' type='text/css'></link>
 <script src="js/namespace.js"></script>
 <script src="js/vote.js"></script>
+<script src="jslib/comm.js"></script>
 <?php } else { ?>
 <!--<remove>
 <script src='min.js'></script>
@@ -46,7 +47,7 @@ voyc.vote.load();
 <section id='results'>
 <h2>Current Results</h2>
 <p>Rounds continue, eliminating the lowest-ranked candidate in each round, until one candidate receives 50% or more of the vote.</p>
-<h3>Winner: Bernie Sanders in Round 4</h3>
+<h3 id='win'></h3>
 <div id='res'></div>
 <div id='stats'>
 <p>Total number of voters:</p>
