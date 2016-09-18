@@ -157,17 +157,14 @@ function castballot() {
 		foreach ($nominees as $key => $value) {
 			$nominees[$key]['pct'] = round(($value['count'] / $total) * 100, 1);
 			if ($i == 1) {
-				if ($nominees[$key]['pct'] > 50) {
-					$nominees[$key]['note'] = 'winner';
+				if ($nominees[$key]['pct'] >= 50) {
+					$nominees[$key]['note'] = 'Winner';
 					$finalRound = $numRound;
 					$winner = $nominees[$key]['name'];
 				}
-				else  {
-					$nominees[$key]['note'] = 'No winner. Less than 50%.';
-				}
 			}
 			else if ($i == count($nominees) && !$finalRound) { // todo: handle tie for last place
-				$nominees[$key]['note'] = 'eliminated';
+				$nominees[$key]['note'] = 'Eliminated';
 				$id = $nominees[$key]['id'];
 				eliminate($id, $numRound, $candidates, $votes);
 			}

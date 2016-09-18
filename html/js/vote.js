@@ -97,29 +97,15 @@ Vote.prototype.drawResults = function() {
 	var rounds = results.rounds;
 	var row = '<tr><td>%name%</td><td>%count%</td><td>(%pct%%)</td><td>%note%</td></tr>';
 	s += '<table>';
-	//var rowheader = '<tr><th>Candidate</th><th>Count</th><th>Percent</th><th></th></tr>';
 	for (var n=0; n<rounds.length; n++) {
 		s += '<tr><td colspan=4><h3>Round ' + (i++) + '</h3></td></tr>';
-		//s += rowheader;
 		for (var m=0; m<rounds[n].nominees.length; m++) {
 			var set = rounds[n].nominees[m];
-
-			var note = '';
-			if (n == rounds.length-1) {
-				if (m == 0) {
-					note = '<b>Winner</b>';
-				}
-			}
-			else {
-				if (m == rounds[n].nominees.length-1) {
-					note = 'Eliminated';
-				}
-			}
 			var td = row;
 			td = td.replace('%name%', set.name);
 			td = td.replace('%count%', set.count);
 			td = td.replace('%pct%', set.pct);
-			td = td.replace('%note%', note);
+			td = td.replace('%note%', set.note);
 			s += td;
 		}
 	}
@@ -128,10 +114,6 @@ Vote.prototype.drawResults = function() {
 }
 
 Vote.prototype.drawElection = function() {
-	/*
-	<h2>Using Instant-Runoff Voting <a class='help' href='https://en.wikipedia.org/wiki/Instant-runoff_voting'>What is that?</a></h2>
-	<h1>Election: </h1>
-	*/
 	document.getElementById('electionname').innerHTML = '2016 USA President'; // window['voyc']['vote']['election']['name'];
 }
 
@@ -240,6 +222,7 @@ Vote.prototype.showSection = function(id, help) {
 	var a = document.querySelectorAll('section');
 	for (var i=0; i<a.length; i++) {
 		a[i].style.display = (a[i].id == id) ? 'block' : 'none';
+		//a[i].style.display = 'block';  // for testing
 	}
 }
 
