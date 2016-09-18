@@ -48,3 +48,4 @@ insert into vote.vote (id,userid,electionid,votes) values (10,1,1,'0000002000000
 insert into vote.vote (id,userid,electionid,votes) values (11,1,1,'000000300000020000000000000000000000000000');
 insert into vote.vote (id,userid,electionid,votes) values (12,1,1,'000000100000060000000000000000000000000000');
 insert into vote.vote (id,userid,electionid,votes) values (13,1,1,'000000600000040000001000000000000000000000');
+select setval('vote.vote_id_seq', 13);

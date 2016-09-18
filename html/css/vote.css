@@ -1,9 +1,66 @@
-td:nth-of-type(3) {
+/* font */
+html {
+	font-family: 'Lucida Sans Unicode', sans-serif;
+}
+.narrative>p, 
+.narrative>ul,
+.narrative>ol {
+	font-family: Georgia, serif;
+}
+/* default heading sizes */
+h1 { font-size:1.4rem; font-weight:bold;}
+h2 { font-size:2.2rem; font-weight:normal;}
+h3 { font-size:1.0rem; font-weight:bold;}
+h4 { font-size:1.0rem; font-weight:normal; }  /* same as p */
+h5 { font-size:1.0rem; font-weight:normal; font-style:italic; }
+
+/* horizontal spacing */
+p,h1,h2,h3,h4,h5,.horz {
+	padding-left:1rem;
+	padding-right:1rem;
+}
+ul,ol {
+	/* li bullets appear in the padding of the containing ul,ol */
+	margin-left:1rem;
+	margin-right:1rem;
+	padding-left:2rem;
+	padding-right:1rem;
+}
+
+
+#res table {
+	border-collapse:collapse;
+	margin-left:1rem;
+	margin-right:1rem;
+}
+#res td, #res th {
+	border-bottom:1px solid green;
+	padding:0 1rem;
+}
+
+/* vertical spacing */
+p,ul,ol,h1,h2,h3,h4,h5,.vert {
+	margin-top:1rem;
+	margin-bottom:1rem;
+}
+
+
+
+td:nth-of-type(3), td:nth-of-type(2) {
 	text-align:right;
 }
 
+#ranked {
+	margin-left: 2rem;
+	color:green;
+	font-weight:bold;
+}
+.rankrank {
+	font-size:1.4rem;
+}
+
 #unranked {
-	margin-top: 1em;
+	margin-left: 2rem;
 }
 
 .help {
@@ -13,9 +70,14 @@ td:nth-of-type(3) {
 
 section {
 	border:1px solid black;
+	display:none;
 }
 
 div[unrankline] {
 	color:blue;
 	text-decoration:underline;
+}
+
+button {
+	margin:1rem 0 1rem 3rem;
 }

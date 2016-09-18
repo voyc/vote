@@ -6,10 +6,11 @@ function castballot() {
 
 	// raw inputs
 	$taint_e = isset($_POST['e']) ? $_POST['e'] : 0;
+	$taint_r = isset($_POST['r']) ? $_POST['r'] : 0;
 
 	// validated inputs
 	$e = validateInteger($taint_e);
-
+	
 	// required parameters
 	if (!$e) {
 		Log::write(LOG_WARNING, 'attempt with invalid parameter set');
@@ -21,6 +22,29 @@ function castballot() {
 	if (!$conn) {
 		return $a;
 	}
+
+	// cast ballot
+
+	if ($taint_r) {
+		$r = validateArrayOfIntegers($taint_r);
+		$e = 1;
+		$u = 1;
+
+		$votes = '';
+		foreach ($r as $rank => $id) {
+			$s = str_pad(strval($id), 7, '0', STR_PAD_LEFT);
+			$votes .= $s;
+		}
+		$name = 'insert_votes';
+		$sql = 'insert into vote.vote (userid, electionid, votes) values ($1, $2, $3)';
+		$params = array($e, $u, $votes);
+		$result = execSql($conn, $name, $sql, $params, false);
+		if (!$result) {
+			return $a;
+		}
+	}
+
+	// return candidates
 
 	// query candidate table
 	$name = 'candidate_list';
@@ -63,6 +87,7 @@ function castballot() {
 		$candidates[] = $cand;
 	}
 
+	// count votes and return results
 	
 	// query vote table
 	$name = 'read_votes';
