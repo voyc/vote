@@ -31,6 +31,7 @@ voyc.vote.load();
 
 <body>
 <h1>Vote <span id='electionname'></h1>
+
 <!-- 
 <section id='loader'>
 	<icon type=draw name=spinner></icon>   
@@ -43,7 +44,7 @@ voyc.vote.load();
 <div id='ranked'></div>
 <h3 id='choice'>Select your <span id='ordinal'>first</span> choice:</h3>
 <div id='unranked'></div>
-<button id='cast' disabled>Cast Ballot</button>
+<button id='cast' class='operation' disabled>Cast Ballot</button>
 </section>
 
 <section id='results'>
@@ -53,6 +54,36 @@ voyc.vote.load();
 <p>Rounds continue until one candidate wins with 50% or more of the vote.  The lowest-ranked candidate is eliminated from each round.</p>
 </section>
 
+<section id='about'>
+<h2>About</h2>
+<p><button id='btnback' class='anchor'>Back</button></p>
+<p>This system demonstrates and tests an online voting system using <i>Preference Ranking</i> and <i>Instant Run-off</i>.</p>
+<h3>Preference Ranking</h3>
+<p>Each voter ranks the candidates in order of preference.</p>
+
+<h3>Instant Run-off</h3>
+<p>
+Votes are counted repeatedly in a series of "run-offs" until a clear winner is found.
+<a href='https://en.wikipedia.org/wiki/Instant-runoff_voting'>more</a></p>
+
+<p>This voting system has been used in states and cities in the USA since 1912.
+<a href='https://en.wikipedia.org/wiki/Instant-runoff_voting_in_the_United_States'>more</a></p>
+
+<h3>Advantages</h3>
+
+<h4>Stop "Lesser Evil" Voting</h4>
+
+<p>In the 2016 Presidential Race, many republicans do not care for Trump, but support him to present a united front against Clinton.  Likewise, many democrats abhor Clinton but know that to NOT vote for her might allow Trump to win.</p>
+
+<p>Noam Chomsky says if you live in a swing state, you must "hold your nose and vote for the lesser evil".
+<a href='https://chomsky.info/an-eight-point-brief-for-lev-lesser-evil-voting/'>more</a></p>
+
+<h4>Allow Third-party Voting</h4>
+
+<p>Each voter can vote for a third-party candidate
+as first choice without fear of "throwing his vote away".  This makes third parties viable, and gives them a chance to win against the two dominant parties.</p>
+
+</section>
 
 <!--
 <div id='stats'>
@@ -63,7 +94,9 @@ voyc.vote.load();
 
 <br/>
 <footer>
-about  <a href='https://github.com/voyc/vote'>github</a>
+<button id='btnabout' class='anchor'>about</button>
+<button id='btnhome' class='anchor'>home</button>  
+<a href='https://github.com/voyc/vote'>github</a>
 </footer>
 </body>
 </html>

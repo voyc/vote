@@ -1,0 +1,44 @@
+
+roles
+	voter
+	election manager
+	admin
+
+election manager
+	create election
+	start voting - open polls
+	stop voting - close polls
+	count votes
+	delete election
+	duplicate election
+	recount
+	settings
+		name
+		open date/time
+		close date/time
+		continuous count y/n - redisplay results after every vote
+		offices or referenda
+			candidates for each office
+			number of positions for each office
+		write-ins allowed y/n
+		
+		
+	As an administrator, you have the power to designate who can vote, when the election starts, when the election stops, and when the results are released. Other than that, you have no power beyond what voters in your election have. This is by design.
+
+write-ins
+	as soon as 5 voters have written-in the same name, this name is added as a candidate
+	display a list of write-ins?
+	there are requirements to be elected potus, therefore only certain declared candidates can be in
+	
+user
+	register
+	login
+	edit profile
+	vote
+		generate ballot
+	change my vote
+		any time up to poll closing
+	verify my vote
+		display it to me
+		email it to me
+	register to vote - prove eligibility at this time

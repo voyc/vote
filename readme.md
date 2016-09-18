@@ -1,63 +1,55 @@
 # Vote
-## Instant-Runoff voting (IRV)
 
-aka
+http://vote.voyc.com/
 
-* alternative vote (AV)
-* transferable vote (single-seat)
-* Ranked Choice Voting (RCV)
-* Preferential Voting 
+## Preferential Voting 
+
+AKA
+
+ * alternative vote (AV)
+ * transferable vote (single-seat)
+ * Ranked Choice Voting (RCV)
 
 Each elector ranks candidates in order of preference.
 
-Vote counting.  Rounds continue until one candidate wins with a majority 50% of the votes.
+## Instant-Runoff Voting (IRV)
 
-Rounds
-* Ballots are counted for each elector's top choice.
-* If one candidate gets a majority, that candidate wins.
-* If not, the last ranked candidate is eliminated from the race.
-* On any ballot ranking this defeated candidate, all the candidates ranked behind him or her are moved up one ranking.
+Vote-counting rounds continue until one candidate wins with a majority 50% of the votes.
 
-##Principles
+For each round:
 
-Political parties are illegal.  Exist only for electioneering.
-Is electioneering legal?
-	constitution
-	Federal Election Commission (FEC)
+ * Ballots are counted for each elector's top choice.
+ * If one candidate gets a majority, that candidate wins.
+ * If not, the last ranked candidate is eliminated from the race.
+ * On any ballot ranking this defeated candidate, all the candidates ranked behind him or her are moved up one ranking.
 
-Insisting on only two candidates is "black-and-white thinking" which is a form of faulty reasoning.
+##Development Principles
 
+The system must be open to public scrutiny.
+ * Open source code.
+ * Crowd-sourced system admin.
+
+###Security
 If a bank can keep secure online accounts for its customers, a government can provide a secure online voting system for its citizens.
 
-Anonymity?  How is citizen privacy guaranteed?
-	Open source code.
-	Crowd sourced system admin?
-	User login with username and password.
-	UserID is associated with his email, and with his votes.  Votes are encrypted, same as password.
+###Anonymity
+Each voter's privacy must be guaranteed.
 
-Verifiability.
-	Open source code.
-	Crowd sourced system admin?
-	Voter's votes can be emailed to him by request at any time.
+ * User login with username and password.
+ * UserID is associated with his email, and with his votes.  Votes are encrypted, same as password.
 
-Eligibility
-	federal: must be USA citizen, soc sec# ?
-	state: drivers license?
-	municipal: ?
-	private:
-	must be member of group for private vote
-		list of email addresses of each group
-		code provided by group
+###Verifiability
+Any voter must be able to verify that his vote was recorded accurately.
 
-## Current systems as of 22 August 2016
+ * Voter's votes can be emailed to him by request at any time.
 
-Helios Voting
-https://vote.heliosvoting.org/
-have to login with google or facebook
+The community of voters must be able to verify the integrity of vote storage and counting.
 
-Scantegrity
-verify optical scan voting systems
+###Eligibility
+The system must identify each voter and ascertain he is eligible to vote.
 
-STARVote
-development has not begun
+ * USA Federal: identified by Social Security number.
+ * USA State: identified by drivers license id.
+ * USA municipal: ?
+ * private organization: identified by an id provided by the organization.
 

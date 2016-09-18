@@ -1,4 +1,4 @@
-/**
+/**	
 	@constructor
 	class Vote
 	A singleton object
@@ -11,6 +11,7 @@ Vote = function() {
 	
 	this.maxRank = 0;
 	this.comm = null;
+	this.currentSection = '';
 }
 
 Vote.ordinals = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'];
@@ -23,6 +24,16 @@ Vote.prototype.load = function() {
 	this.getElection(id);
 
 	var that = this;
+	document.getElementById('btnabout').addEventListener('click', function() {
+		that.showHelp('about', false);
+	}, false);
+	document.getElementById('btnhome').addEventListener('click', function() {
+		that.showHelp('home');
+	}, false);
+	document.getElementById('btnback').addEventListener('click', function() {
+		that.showHelp('home');
+	}, false);
+
 	document.getElementById('cast').addEventListener('click', function() {
 		// loop thru candidates, build array
 		var arank = [];
@@ -222,9 +233,28 @@ Vote.prototype.setRank = function(evt) {
 	this.drawBallot();
 }
 
-Vote.prototype.showSection = function(id) {
+Vote.prototype.showSection = function(id, help) {
+	if (!help) {
+		this.currentSection = id;
+	}
 	var a = document.querySelectorAll('section');
 	for (var i=0; i<a.length; i++) {
 		a[i].style.display = (a[i].id == id) ? 'block' : 'none';
 	}
+}
+
+Vote.prototype.showHelp = function(id) {
+	if (id == 'home') {
+		document.getElementById('btnabout').style.display = 'inline';
+		document.getElementById('btnhome').style.display = 'none';
+	}
+	else if (id == 'about') {
+		document.getElementById('btnabout').style.display = 'none';
+		document.getElementById('btnhome').style.display = 'inline';
+	}
+	
+	if (id == 'home') {
+		id = this.currentSection;
+	}
+	this.showSection(id, true);
 }

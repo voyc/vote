@@ -11,7 +11,7 @@ html {
 h1 { font-size:1.4rem; font-weight:bold;}
 h2 { font-size:2.2rem; font-weight:normal;}
 h3 { font-size:1.0rem; font-weight:bold;}
-h4 { font-size:1.0rem; font-weight:normal; }  /* same as p */
+h4 { font-size:1.0rem; font-weight:boldl; color:green}
 h5 { font-size:1.0rem; font-weight:normal; font-style:italic; }
 
 /* horizontal spacing */
@@ -78,6 +78,34 @@ div[unrankline] {
 	text-decoration:underline;
 }
 
-button {
+button.operation {
 	margin:1rem 0 1rem 3rem;
+}
+
+/* anchor button */
+button.anchor  {
+	/* remove button styles */
+	background: none;
+	border: none;
+	display: inline;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	outline-offset: 0;
+	/* add anchor styles */
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+	/* add layout styles */
+	margin:4px 2px;
+}
+
+button.anchor[disabled] {
+	color:gray;
+	text-decoration: none;
+}
+
+button#btnhome {
+	display:none;
 }
