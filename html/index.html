@@ -31,6 +31,7 @@ voyc.vote.load();
 
 <body>
 <h1>Vote <span id='electionname'></h1>
+<h3 class=subhead>Demonstrate Instant-Runoff Voting</h3>
 
 <!-- 
 <section id='loader'>
@@ -41,7 +42,7 @@ voyc.vote.load();
 
 <section id='ballot'>
 <h2>Ballot</h2>
-<h4>Preference Ranking</h4>
+<h3 class=subhead>Preference Ranking</h3>
 <div id='ranked'></div>
 <h3 id='choice'>Select your <span id='ordinal'>first</span> choice:</h3>
 <div id='unranked'></div>
@@ -50,7 +51,7 @@ voyc.vote.load();
 
 <section id='results'>
 <h2>Results</h2>
-<h4>Instant Run-off</h4>
+<h3 class=subhead>Instant Run-off</h3>
 <h3 id='win'></h3>
 <div id='res'></div>
 <p>Rounds continue until one candidate wins with 50% or more.<br/>
@@ -59,34 +60,36 @@ The lowest-ranked candidate is eliminated from each round.</p>
 
 <section id='about'>
 <h2>About</h2>
-<p><button id='btnback' class='anchor'>Back</button></p>
-<p>This system demonstrates and tests an online voting system using <i>Preference Ranking</i> and <i>Instant Run-off</i>.</p>
-<h3>Preference Ranking</h3>
-<p>Each voter ranks the candidates in order of preference.
-<a href='https://www.youtube.com/watch?v=wqblOq8BmgM'>video</a></p>
+<p><a id='btnback' class='anchor'>Back to Vote</a></p>
+<p>This website demonstrates and tests a voting system using <i>Preference Ranking</i> and <i>Instant Run-off</i>.</p>
 
-<h3>Instant Run-off</h3>
-<p>
-Votes are counted repeatedly in a series of "run-offs" until a majority winner is found.
-<a href='https://en.wikipedia.org/wiki/Instant-runoff_voting'>more</a></p>
+<ul>
+<li><b>Preference Ranking</b> - Each voter ranks the candidates in order of preference.</li>
 
-<p>This voting system has been used in states and cities in the USA since 1912.
-<a href='https://en.wikipedia.org/wiki/Instant-runoff_voting_in_the_United_States'>more</a></p>
+<li><b>Instant Run-off</b> - Votes are counted repeatedly in a series of "run-offs" until a majority winner is found.</</li>
+</ul>
 
-<h3>Advantages</h3>
-
-<h4>Stop "Lesser Evil" Voting</h4>
-
-<p>In the 2016 Presidential Race, many republicans do not care for Trump, but support him to present a united front against Clinton.  Likewise, many democrats abhor Clinton but know that to NOT vote for her might allow Trump to win.</p>
-
-<p>Noam Chomsky says if you live in a swing state, you must "hold your nose and vote for the lesser evil".
-<a href='https://chomsky.info/an-eight-point-brief-for-lev-lesser-evil-voting/'>more</a></p>
+<h3>Advantages of Instant Run-off Voting</h3>
 
 <h4>Allow Third-party Voting</h4>
-
 <p>Each voter can vote for a third-party candidate
-as first choice without fear of "throwing his vote away".  This makes third parties viable.</p>
+as first choice without fear of "throwing his vote away".</p>
 
+<h4>Stop "Lesser Evil" Voting</h4>
+<p>Sometimes, people vote for someone they don't like, but consider the 
+<a href='https://chomsky.info/an-eight-point-brief-for-lev-lesser-evil-voting/'>"lesser evil"</a>. 
+The 2016 Presidential Race is a good example.  Some republicans do not care for Trump, but support him to present a united front against Clinton.  Likewise, many democrats abhor Clinton but know that to NOT vote for her might allow Trump to win.</p>
+
+<h4>Majority Winner</h4>
+<p>The winning candidate is preferred by a majority of voters.</p>
+
+<h4>Tried and True</h4>
+<p>Instant Run-off Voting has been used in the USA in states and cities in the USA for over 100 years.
+It is currently used in Australia and Europe.</p>
+
+<p>More details about <a href='https://en.wikipedia.org/wiki/Instant-runoff_voting'>Instant Run-off Voting</a> on wikipedia.</p>
+
+<p>Watch an <a href='https://www.youtube.com/watch?v=wqblOq8BmgM'>Instant Run-off Voting</a> video.</p>
 </section>
 
 <!--
@@ -98,9 +101,9 @@ as first choice without fear of "throwing his vote away".  This makes third part
 
 <br/>
 <footer>
-<button id='btnabout' class='anchor'>about</button>
-<button id='btnhome' class='anchor'>home</button>  
-<a href='https://github.com/voyc/vote'>github</a>
+<a id='btnabout' class='anchor'>about</a>
+<a id='btnhome' class='anchor'>vote</a>  
+<a class='fr' href='https://github.com/voyc/vote'>github</a>
 </footer>
 </body>
 </html>
