@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>NavA</title>
+
+
+<script>
+
+var voyc = {};
+
+addEventListener('load', function(event) {
+	voyc.nav = new voyc.Nav();
+	voyc.title = 'NavB';
+	voyc.nav.keyword = 'name';
+	voyc.nav.onPageLoad = function(page) {
+		document.title = voyc.title + ' ' + page;
+		document.getElementById('content').innerHTML = 'This is a story about ' + page + '.';
+	}
+	voyc.nav.startup();
+
+	var btns = document.querySelectorAll('button');
+	for (var i=0; i<btns.length; i++) {
+		btns[i].addEventListener('click', function(event) {
+			voyc.nav.jump(event.currentTarget.id);
+		}, false);
+	}
+}, false)
+</script>
+
+<script src='nav.js'></script>
+
+</head>
+<body>
+<div>
+	<button id=winston>Winston</button>
+	<button id=genghis>Genghis</button>
+	<button id=houston>Houston</button>
+	<button id=murray>Murray</button>
+	<button id=oberheim>Oberheim</button>
+	<button id=tentanbach>Tentanbach</button>
+</div>
+<div id=content>
+	This is the home page.
+</div>
+</body>
+</html>

@@ -12,6 +12,7 @@
 <script src="js/namespace.js"></script>
 <script src="js/vote.js"></script>
 <script src="jslib/comm.js"></script>
+<script src="jslib/nav.js"></script>
 <script src="icon/icon.js"></script>
 <script src="icon/lib/spinner.js"></script>
 <?php } else { ?>
@@ -33,6 +34,10 @@ voyc.vote.load();
 <h1>Vote <span id='electionname'></h1>
 <h3 class=subhead>Demonstrate Instant-Runoff Voting</h3>
 
+<button navbtn id='btnballot'  class='anchor'>Ballot</button>  
+<button navbtn id='btnresults' class='anchor'>Results</button>  
+<button navbtn id='btnabout'   class='anchor'>About</button>
+
 <!-- 
 <section id='loader'>
 	<icon type=draw name=spinner></icon>   
@@ -40,11 +45,12 @@ voyc.vote.load();
 <p>Change your vote anytime before 8:00 PM Pacific November 5, 2016.</p> 
 -->
 
+
 <section id='ballot'>
 <h2>Ballot</h2>
 <h3 class=subhead>Preference Ranking</h3>
 <div id='ranked'></div>
-<h3 id='choice'>Select your <span id='ordinal'>first</span> choice:</h3>
+<h5 id='choice'>Select your <span id='ordinal'>first</span> choice:</h5>
 <div id='unranked'></div>
 <button id='cast' class='operation' disabled>Cast Ballot</button>
 </section>
@@ -52,7 +58,7 @@ voyc.vote.load();
 <section id='results'>
 <h2>Results</h2>
 <h3 class=subhead>Instant Run-off</h3>
-<h3 id='win'></h3>
+<h5 id='win'></h5>
 <div id='res'></div>
 <p>Rounds continue until one candidate wins with 50% or more.<br/>
 The lowest-ranked candidate is eliminated from each round.</p>
@@ -60,8 +66,7 @@ The lowest-ranked candidate is eliminated from each round.</p>
 
 <section id='about'>
 <h2>About</h2>
-<p><a id='btnback' class='anchor'>Back to Vote</a></p>
-<p>This website demonstrates and tests a voting system using <i>Preference Ranking</i> and <i>Instant Run-off</i>.</p>
+<p>This website demonstrates Instant Run-off Voting.</p>
 
 <ul>
 <li><b>Preference Ranking</b> - Each voter ranks the candidates in order of preference.</li>
@@ -69,23 +74,22 @@ The lowest-ranked candidate is eliminated from each round.</p>
 <li><b>Instant Run-off</b> - Votes are counted repeatedly in a series of "run-offs" until a majority winner is found.</</li>
 </ul>
 
-<h3>Advantages of Instant Run-off Voting</h3>
+<h3 class=about>Advantages of Instant Run-off Voting</h3>
 
 <h4>Allow Third-party Voting</h4>
 <p>Each voter can vote for a third-party candidate
 as first choice without fear of "throwing his vote away".</p>
 
-<h4>Stop "Lesser Evil" Voting</h4>
-<p>Sometimes, people vote for someone they don't like, but consider the 
-<a href='https://chomsky.info/an-eight-point-brief-for-lev-lesser-evil-voting/'>"lesser evil"</a>. 
-The 2016 Presidential Race is a good example.  Some republicans do not care for Trump, but support him to present a united front against Clinton.  Likewise, many democrats abhor Clinton but know that to NOT vote for her might allow Trump to win.</p>
-
 <h4>Majority Winner</h4>
 <p>The winning candidate is preferred by a majority of voters.</p>
 
+<h4>Stop "Lesser Evil" Voting</h4>
+<p>Sometimes, people vote for someone they don't like, but consider the 
+<a href='https://chomsky.info/an-eight-point-brief-for-lev-lesser-evil-voting/'>"lesser evil"</a>. 
+The 2016 Presidential Race is a good example.  Some republicans do not care for Trump, but support him to present a united front against Clinton.  Likewise, many democrats abhor Clinton but to NOT vote for her might allow Trump to win.</p>
+
 <h4>Tried and True</h4>
-<p>Instant Run-off Voting has been used in the USA in states and cities in the USA for over 100 years.
-It is currently used in Australia and Europe.</p>
+<p>Instant Run-off Voting has been in use in states and cities in the USA, Australia, India, and other places for over 100 years.</p>
 
 <p>More details about <a href='https://en.wikipedia.org/wiki/Instant-runoff_voting'>Instant Run-off Voting</a> on wikipedia.</p>
 
@@ -101,8 +105,6 @@ It is currently used in Australia and Europe.</p>
 
 <br/>
 <footer>
-<a id='btnabout' class='anchor'>about</a>
-<a id='btnhome' class='anchor'>vote</a>  
 <a class='fr' href='https://github.com/voyc/vote'>github</a>
 </footer>
 </body>

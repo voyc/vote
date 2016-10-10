@@ -23,15 +23,24 @@ Vote.prototype.load = function() {
 	var id = 1;
 	this.getElection(id);
 
+	this.nav = new voyc.Nav();
+	voyc.title = 'Vote';
+	this.nav.keyword = 'page';
 	var that = this;
+	this.nav.onPageLoad = function(page) {
+		document.title = voyc.title + ' ' + page.charAt(0).toUpperCase() + page.slice(1);
+		that.showSection(page,false);
+	}
+	this.nav.startup();
+
+	document.getElementById('btnballot').addEventListener('click', function() {
+		that.nav.jump('ballot', false);
+	}, false);
+	document.getElementById('btnresults').addEventListener('click', function() {
+		that.nav.jump('results', false);
+	}, false);
 	document.getElementById('btnabout').addEventListener('click', function() {
-		that.showHelp('about', false);
-	}, false);
-	document.getElementById('btnhome').addEventListener('click', function() {
-		that.showHelp('home');
-	}, false);
-	document.getElementById('btnback').addEventListener('click', function() {
-		that.showHelp('home');
+		that.nav.jump('about', false);
 	}, false);
 
 	document.getElementById('cast').addEventListener('click', function() {
@@ -54,7 +63,7 @@ Vote.prototype.load = function() {
 				that.drawElection();
 				that.drawBallot();
 				that.drawResults();
-				that.showSection('results');
+				that.nav.jump('results');
 			}
 		});
 	}, false);
@@ -78,7 +87,7 @@ Vote.prototype.getElection = function(id) {
 			that.drawElection();
 			that.drawBallot();
 			that.drawResults();
-			that.showSection('ballot');
+			that.nav.replace('ballot');
 		}
 	});
 }
@@ -224,20 +233,14 @@ Vote.prototype.showSection = function(id, help) {
 		a[i].style.display = (a[i].id == id) ? 'block' : 'none';
 		//a[i].style.display = 'block';  // for testing
 	}
-}
 
-Vote.prototype.showHelp = function(id) {
-	if (id == 'home') {
-		document.getElementById('btnabout').style.display = 'inline';
-		document.getElementById('btnhome').style.display = 'none';
+	var a = document.querySelectorAll('[navbtn]');
+	for (var i=0; i<a.length; i++) {
+		if (a[i].id == 'btn'+id) {
+			a[i].classList.add('active');
+		}
+		else {
+			a[i].classList.remove('active');
+		}
 	}
-	else if (id == 'about') {
-		document.getElementById('btnabout').style.display = 'none';
-		document.getElementById('btnhome').style.display = 'inline';
-	}
-	
-	if (id == 'home') {
-		id = this.currentSection;
-	}
-	this.showSection(id, true);
 }
