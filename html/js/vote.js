@@ -19,7 +19,7 @@ Vote.rankline = '<div rankline id=%id%> <span class=rankrank>%rank%</span> %name
 Vote.unrankline = '<div unrankline id=%id%>%name%, %party%</div>';
 
 Vote.prototype.load = function() {
-	this.comm = new Comm('http://vote.voyc.com/svc/', '', 0, true); 
+	this.comm = new Comm('https://vote.voyc.com/svc/', '', 0, true); 
 	var id = 1;
 	this.getElection(id);
 

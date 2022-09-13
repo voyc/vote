@@ -1,6 +1,6 @@
 # Vote
 
-http://vote.voyc.com/
+https://vote.voyc.com/
 
 ## Preferential Voting 
 

@@ -3,7 +3,7 @@ svctest = {};
 $ = function(eid) { return document.getElementById(eid); }
 window.addEventListener('load', function(evt) {
 	attachDomEventHandlers();
-	svctest.comm = new Comm('http://vote.voyc.com/svc/', '', 0, true); 
+	svctest.comm = new Comm('https://vote.voyc.com/svc/', '', 0, true); 
 }, false);
 
 attachDomEventHandlers = function() {

@@ -30,6 +30,6 @@ Voting system to make third parties possible.
 
 Voting system eliminates two-party dominance.
 Try it here.
-http://vote.voyc.com/
+https://vote.voyc.com/
 
 
